@@ -29,7 +29,7 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
         script: |
-          cd ~/app/
+          cd ~/app/server
             npm install
             npm start
             echo Server Started                
