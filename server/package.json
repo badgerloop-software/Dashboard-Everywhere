@@ -1,0 +1,29 @@
+{
+  "name": "de-server",
+  "version": "1.0.0",
+  "description": "The Backend/Mididleware for the Dashboard Everywhere Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "build": "rm -rf ./build && tsc --pretty",
+    "start": "npm run build && node build/index.js",
+    "lint": "eslint . --ext .ts"
+  },
+  "author": "Eric Udlis",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.1.0"
+  }
+}
