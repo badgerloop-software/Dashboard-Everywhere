@@ -1,0 +1,26 @@
+{
+  "name": "dashboard-everywhere-client",
+  "version": "1.0.0",
+  "description": "Online dashboard",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badgerloop-software/Dashboard-Everywhere.git"
+  },
+  "author": "Eric Udlis and Ezra Boley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/badgerloop-software/Dashboard-Everywhere/issues"
+  },
+  "homepage": "https://github.com/badgerloop-software/Dashboard-Everywhere#readme",
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.7.0",
+    "highcharts": "^8.2.0",
+    "prettier": "^2.1.1",
+    "socket.io-client": "^2.3.0"
+  }
+}

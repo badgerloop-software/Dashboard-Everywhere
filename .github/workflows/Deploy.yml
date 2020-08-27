@@ -21,11 +21,15 @@ jobs:
         source: "."
         target: "~/app/"
 
-    - name: Executing remote  command
+    - name: Restarting Server
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
-        script: cat ~/app/README.md
+        script: |
+          cd ~/app/server
+            npm install
+            npm start
+            echo Server Started                
