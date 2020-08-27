@@ -6,15 +6,15 @@
 
 
 /** @requires module:jsons-database */
-import STORED_DATA from '../../database.json';
+import STORED_DATA from '../../database.js';
 
 /** @requires module:cache */
-import CACHE from './cache';
+import CACHE from './cache.js';
 
 /** @requires module:Recording */
-import DATA_RECORDING from './dataRecording';
+import DATA_RECORDING from './dataRecording.js';
 
-import State from './State';
+import State from './State.js';
 
 //const PACKET_HANDLER = new EVENTS.EventEmitter();
 export const packetHandler = {on: () => {console.log('mock packethandler')}};
@@ -24,7 +24,7 @@ export let isDataRecording = false;
 /** @constant - Changes the data recording variable from the handler */
 //const RECORDING_EVENT = new EVENTS.EventEmitter();
 export const recordingEvent = {on: () => {console.log('mock packethandler')}};
-
+const RECORDING_EVENT = recordingEvent;
 ////// TODO RE-ADD -> Basically disconnected right now
 // Sets that data is recording
 RECORDING_EVENT.on('on', () => {
@@ -262,9 +262,9 @@ export function normalizePacket(input) {
  */
 export function findRenderable() {
   let renderable = STORED_DATA;
-  let subsystems = Object.keys(renderable);
+  const subsystems = Object.keys(renderable);
   subsystems.forEach((subsystem) => {
-    sensors = Object.keys(renderable[subsystem]);
+    const sensors = Object.keys(renderable[subsystem]);
     sensors.forEach((sensor) => {
       let currentLocaton = renderable[subsystem][sensor];
       if (!currentLocaton.show) delete renderable[subsystem][sensor];

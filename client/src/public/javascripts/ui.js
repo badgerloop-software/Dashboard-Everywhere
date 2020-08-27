@@ -5,8 +5,7 @@
  */
 
 
-const CONFIG = require('./public/javascripts/config');
-const CONFIG_CONSTANTS = require('./public/javascripts/config').constants;
+import CONFIG_CONSTANTS from './constants.js';
 
 const RATE = CONFIG_CONSTANTS.DATA_SEND_RATE;
 
@@ -192,7 +191,7 @@ if (settingsSubmit) {
     constsCache.lvBone.ip = document.getElementById('lvBoneIP').value;
     constsCache.lvBone.port = Number(document.getElementById('lvBonePort').value);
     constsCache.renderInterval = Number(document.getElementById('renderInterval').value);
-    document.getElementById('formFeedback').innerHTML = CONFIG.writeJSON(constsCache);
+  //  document.getElementById('formFeedback').innerHTML = CONFIG.writeJSON(constsCache);
   });
 }
 
@@ -201,7 +200,7 @@ if (settingsSubmit) {
  */
 function fillConstants() {
   // eslint-disable-line no-unused-vars
-  CONFIG.updateConstants();
+//  CONFIG.updateConstants();
   document.getElementById('formFeedback').innerHTML = 'Will restart for changes to take place.';
   document.getElementById('podIP').value = String(CONFIG_CONSTANTS.serverAddr.ip);
   document.getElementById('podPort').value = CONFIG_CONSTANTS.serverAddr.port;

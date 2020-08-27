@@ -1,7 +1,6 @@
-import sendHVCommand from './public/javascripts/communication';
-import sendEBrake from './communication';
-const config = require('./public/javascripts/config');
-const consts = require('./public/javascripts/config').constants;
+import sendHVCommand from './communication.js';
+import sendEBrake from './communication.js';
+import consts from './constants.js';
 
 const terminalInput = document.getElementById('terminalInputBox');
 const terminalOutput = document.getElementById('terminalOutputList');
@@ -159,13 +158,12 @@ settingsSubmit.addEventListener('click', () => {
   constsCache.lvBone.ip = document.getElementById('lvBoneIP').value;
   constsCache.lvBone.port = Number(document.getElementById('lvBonePort').value);
   constsCache.renderInterval = Number(document.getElementById('renderInterval').value);
-  document.getElementById('formFeedback').innerHTML = config.writeJSON(constsCache);
+  // document.getElementById('formFeedback').innerHTML = config.writeJSON(constsCache);
   location.reload();  // FIXME : Probably wrong
 });
 
 // Fills entries in text boxes
 function fillConstants() { // eslint-disable-line no-unused-vars
-  config.updateConstants();
   document.getElementById('formFeedback').innerHTML = 'Will restart for changes to take place.';
   document.getElementById('podIP').value = String(consts.serverAddr.ip);
   document.getElementById('podPort').value = consts.serverAddr.port;

@@ -1,4 +1,4 @@
-import DATABASE from '../../database.json';
+import DATABASE from '../../database.js';
 
 let nextID = 0;
 const DROPDOWNS = [];

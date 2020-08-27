@@ -6,20 +6,20 @@
 
 import {primBrakeOn, primBrakeOff, secBrakeOn, secBrakeOff, sendLVPing, 
   sendHVPing, sendEBrake, enableHV, disableHV, commandTorque, 
-  toggleLatch, enPrecharge, receivedEmitter} from './communication';
+  toggleLatch, enPrecharge, receivedEmitter} from './communication.js';
 
-import {archiveData, isDataRecording, recordingEvent, createCache, normalizePacket, packetHandler, findRenderable} from './datainterfacing';
+import {archiveData, isDataRecording, recordingEvent, createCache, normalizePacket, packetHandler, findRenderable} from './datainterfacing.js';
 
-import CONSTANTS from './constants';
-import {fillAllItems, fillAllTables, stateTimer} from './dynamicloading';
-import RENDERER from './renderer';
-import CACHE from './cache';
-import DATA_RECORDING from './dataRecording';
+import CONSTANTS from './constants.js';
+import {fillAllItems, fillAllTables, stateTimer} from './dynamicloading.js';
+import RENDERER from './renderer.js';
+import CACHE from './cache.js';
+import DATA_RECORDING from './dataRecording.js';
 
 // New OOP stuff
-import State from './public/javascripts/State';
-import ControlPanelButton from './public/assets/ControlPanelButton';
-import Timer from './public/javascripts/Timer';
+import State from './State.js';
+import ControlPanelButton from '../assets/ControlPanelButton.js';
+import Timer from './Timer.js';
 
 const D = document;
 const TIMEOUT = 5000;
@@ -70,7 +70,7 @@ const STATE_TIMER = stateTimer;
 let activeTimer = GLOBAL_TIMER;
 let udpTimeout;
 let udpConnected = false;
-let { DEBUG } = Boolean(process.env) || false;
+let { DEBUG } = /* Boolean(process.env) || */ false;
 let boneStatus = [false, false]; // [LV, HV]
 let packetCounts = [0, 0]; // [LV, HV]
 // eslint-disable-next-line no-unused-vars
@@ -375,7 +375,7 @@ function createDashboard() {
       fillAllItems();
       fillAllTables();
     } catch (e) {
-      reject(new Error(e));
+      reject(e);
     }
     resolve();
   });

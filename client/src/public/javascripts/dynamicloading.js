@@ -7,10 +7,10 @@
 
 /** @requires module:DataInterfacing */
 
-import { findRenderable } from './datainterfacing';
+import { findRenderable } from './datainterfacing.js';
 
 /** @requires module:Timer @see module:Timer */
-import TIMER from './Timer';
+import TIMER from './Timer.js';
 
 const STATE_TIMER = new TIMER();
 const DEFAULT_STATE = 'poweroff';
@@ -40,7 +40,7 @@ function createHeaderCol(name, group, units) {
  */
 function createMinCol(name, group) {
   if (typeof name !== 'string') throw new Error('Error: Name must be a string');
-  let renderable = DATA_INTERFACING.findRenderable();
+  let renderable = findRenderable();
   if (!renderable[group]) throw new Error('Error: Group is not found in renderable list');
   let col = document.createElement('td'); // Creates Element
   col.className = 'min'; // Assigns class
@@ -83,9 +83,8 @@ function createMaxCol(name, group) {
  * @param {String} units The units to display in
  */
 function createRow(name, group, units) {
-  this.group = group;
   let row = document.createElement('tr');
-
+  let thisGroup = group;
   let header = createHeaderCol(name, group, units);
   row.appendChild(header);
 
@@ -97,8 +96,8 @@ function createRow(name, group, units) {
 
   let max = createMaxCol(name, group);
   row.appendChild(max);
-  if (group === 'braking') this.group = 'braking_table';
-  let table = document.getElementById(this.group);
+  if (group === 'braking') thisGroup = 'braking_table';
+  let table = document.getElementById(thisGroup);
   table.appendChild(row);
 }
 
@@ -109,7 +108,7 @@ function createRow(name, group, units) {
 function fillTable(table) { // eslint-disable-line
   let renderable = findRenderable();
   let currentSystem = renderable[table];
-  sensors = Object.keys(currentSystem); // Create an array with all sensors in the subsystem
+  const sensors = Object.keys(currentSystem); // Create an array with all sensors in the subsystem
 
   sensors.forEach((sensor) => {
     createRow(`${sensor}`, table, `${currentSystem[sensor].units}`); // For each sensor create a row
@@ -190,7 +189,7 @@ function fillRowBounds(subsystem, sensor, state) {
  */
 function fillTableBounds(subsystem, state) {
   let renderable = findRenderable();
-  sensors = Object.keys(renderable[subsystem]);
+  const sensors = Object.keys(renderable[subsystem]);
   sensors.forEach((sensor) => {
     // console.log(`Starting ${sensor}`);
     fillRowBounds(subsystem, sensor, state);
@@ -204,7 +203,7 @@ function fillTableBounds(subsystem, state) {
  */
 export function fillAllBounds(state) { // eslint-disable-line no-unused-vars
   let renderable = findRenderable();
-  subsystems = Object.keys(renderable);
+  const subsystems = Object.keys(renderable);
   subsystems.forEach((system) => {
     // console.log(`Starting ${system}`);
     fillTableBounds(system, state);

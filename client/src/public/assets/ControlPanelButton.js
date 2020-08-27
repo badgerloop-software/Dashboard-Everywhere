@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './Button.js';
 
 const CONTROL_PANEL_BUTTONS = [];
 /**

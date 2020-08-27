@@ -1,6 +1,6 @@
-import StateButton from '../assets/StateButton';
-import sendOverride from './communication';
-import fillAllBounds from '../javascripts/dynamicloading';
+import StateButton from '../assets/StateButton.js';
+import { sendOverride } from './communication.js';
+import { fillAllBounds } from '../javascripts/dynamicloading.js';
 
 let STATES = [];
 /**

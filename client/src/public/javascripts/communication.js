@@ -6,9 +6,9 @@
 
 // TODO basically needs to be rewritten.
 
-import CONSTANTS from './constants';
+import CONSTANTS from './constants.js';
 
-import io from 'socket.io-client';
+//import io from 'socket.io-client';
 
 //const UDP_SERVER = DGRAM.createSocket('udp4');
 const PORT = CONSTANTS.serverAddr.port;
@@ -17,7 +17,7 @@ const LV_BONE_IP = CONSTANTS.lvBone.ip;
 const LV_BONE_PORT = CONSTANTS.lvBone.port;
 const HV_BONE_IP = CONSTANTS.hvBone.ip;
 const HV_BONE_PORT = CONSTANTS.hvBone.port;
-const RECIEVING_EMITTER = {emit: ()=>{}};//new EVENTS.EventEmitter();
+const RECIEVING_EMITTER = {emit: ()=>{}, on: ()=> {}};//new EVENTS.EventEmitter();
 
 
 // UDP Data Recieving
@@ -174,7 +174,7 @@ export function secBrakeOn() {
 /**
  * Sends secondary brake off command
  */
-export function secBrakeOn() {
+export function secBrakeOff() {
   sendLVCommand('secBrakeOff');
 };
 

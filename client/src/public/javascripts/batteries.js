@@ -2,7 +2,7 @@
  * Batteries Modules
  * @module Batteries
  */
-import { receivedEmitter } from './communication'
+import { receivedEmitter } from './communication.js'
 
 /** @constant {Number} - Width of battery table */
 const TABLE_WIDTH = 8;

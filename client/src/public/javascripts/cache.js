@@ -4,4 +4,4 @@
  * @description Starts out as an empty object and gets the structure built in Data-Interfacing
  */
 
-export default CACHE = {};
+export default {};

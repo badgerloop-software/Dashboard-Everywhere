@@ -2,7 +2,7 @@
  * @module Renderer
  * @author Eric Udlis
  */
-import CONSTANTS from './constants.json';
+import CONSTANTS from './constants.js';
 
 // May want to remove this?
 

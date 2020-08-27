@@ -1,4 +1,4 @@
-{
+export default {
   "braking": {
     "primaryTank": {
       "name": "PS1",

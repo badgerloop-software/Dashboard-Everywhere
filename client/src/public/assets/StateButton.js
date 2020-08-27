@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './Button.js';
 /**
  * Class representing a state control button
  * @extends Button

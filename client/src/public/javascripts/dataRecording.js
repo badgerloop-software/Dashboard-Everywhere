@@ -4,4 +4,4 @@
  * @description Starts out as an empty object and gets the structure buit in
  * @description Data-Interfacing
  */
-export default RECORD = {};
+export default {};
