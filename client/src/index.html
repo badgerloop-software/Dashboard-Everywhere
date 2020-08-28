@@ -35,10 +35,9 @@
     <!-- main grid layout-->
     <div class="grid">
       <!-- Focus Box -->
+      <div>
       <div id="header1" class="box">
         <div class="grid_focus">
-          <div class="dropdown" id="focusBox">
-          </div>
           <div class="header_focus" id="header_focus_1">
             <p id="header_label_1">Value 1</p>
             <h1 id="header_value_1"></h1>
@@ -55,8 +54,33 @@
             <p id="header_label_4">Value 4</p>
             <h1 id="header_value_4"></h1>
           </div>
+          <div class="dropdown" id="focusBox">
+          </div>
         </div>
       </div>
+      <!-- Emergency Start and Stop Buttons -->
+      <div id="extra" class="box">
+        <!-- <button id="start" class="confirmationTrigger">
+          <h1>MASTER START</h1>
+        </button> -->
+        <!-- <button id="motor-safety">
+          <h3>MOTOR  SAFETY</h3>
+          <h1 id="motor-safety-status" class="status-on">ON</h1>
+        </button> -->
+        <button id="estop">
+          <h1>E-STOP</h1>
+        </button>
+      </div>
+      </div>
+      <!-- State Machine Control Panel -->
+      <div id="header3a" class="box">
+        <div class="gridStateMachine" id="statemachineBox"></div>
+      </div>
+      <div id="header3" class="box">
+        <div class="gridStateMachine" id="controlpanelBox">
+        </div>
+      </div>
+
       <!-- Charts -->
       <div id="header2" class="box">
         <div class="grid_focus2">
@@ -72,15 +96,6 @@
           </div>
         </div>
       </div>
-      <!-- State Machine Control Panel -->
-      <div id="header3a" class="box">
-        <div class="gridStateMachine" id="statemachineBox"></div>
-      </div>
-      <div id="header3" class="box">
-        <div class="gridStateMachine" id="controlpanelBox">
-        </div>
-      </div>
-
       <!-- Latency Indicator-->
       <div id="header4" class="box">
         <div id="header4Left">
@@ -116,19 +131,7 @@
         </div>
       </div>
 
-      <!-- Emergency Start and Stop Buttons -->
-      <div id="extra" class="box">
-        <!-- <button id="start" class="confirmationTrigger">
-          <h1>MASTER START</h1>
-        </button> -->
-        <!-- <button id="motor-safety">
-          <h3>MOTOR  SAFETY</h3>
-          <h1 id="motor-safety-status" class="status-on">ON</h1>
-        </button> -->
-        <button id="estop">
-          <h1>E-STOP</h1>
-        </button>
-      </div>
+      
       <div class='dataContainer'>
       <!-- Motion Table -->
       <div id="motion_div" class="box ok dataBox">
