@@ -19,8 +19,8 @@ socket.on('connect', function(){
 });
 
 socket.on('packet', function(data) {
-  // const formattedData = JSON.parse(data);
-  console.log(data)
+  const formattedData = JSON.parse(data);
+  console.log(formattedData);
 });
 
 socket.on('disconnect', function() {
