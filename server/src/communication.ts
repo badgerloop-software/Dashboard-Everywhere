@@ -1,14 +1,14 @@
 import udp from 'dgram';
 
 export default class UdpServer {
-    server: any;
+    server: udp.Socket;
 
     constructor(port: number) {
       this.server = this.createUDPSocket(port);
     }
 
-    private createUDPSocket(port: number) {
-      const server = udp.createSocket('udp4');
+    private createUDPSocket(port: number): udp.Socket {
+      const server: udp.Socket = udp.createSocket('udp4');
 
       server.on('error', (error: Error) => {
         console.log(`[ERROR] ${error.message}`);
@@ -25,12 +25,14 @@ export default class UdpServer {
       });
 
       server.bind(port);
-      this.server = server;
+      return server;
     }
 
-    public closeServer() {
-        this.server.close();
+    public closeServer(): void {
+      this.server.close();
     }
 
-    public setOnMessage(onMessage: Function)
+    public setOnMessage(onMessage: (msg: Buffer, info: Record<string, unknown>) => void): void {
+      this.server.on('message', onMessage);
+    }
 }

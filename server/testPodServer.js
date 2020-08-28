@@ -5,9 +5,8 @@
  */
 
 const DGRAM = require('dgram');
-const CONSTANTS = require('./constants');
 
-const DATA_SEND_RATE = CONSTANTS.dataSendRate;
+const DATA_SEND_RATE = 1000;
 const IP = '127.0.0.1';
 const PORT = 4000;
 const CLIENT = DGRAM.createSocket('udp4');
