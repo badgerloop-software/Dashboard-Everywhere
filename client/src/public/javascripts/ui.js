@@ -6,6 +6,7 @@
 
 
 import CONFIG_CONSTANTS from './constants.js';
+import Dropdown from '../assets/Dropdown.js';
 
 const RATE = CONFIG_CONSTANTS.DATA_SEND_RATE;
 
@@ -119,17 +120,21 @@ setInterval(() => {
         table.rows[r].cells[2].style.backgroundColor = '#fff'; // else sets to white background
       }
     }
+    const classList = document.getElementById(divIDs[u]).classList;
     if (errorChecker !== 0) {
       // if there was an error in any row during one run of the for loop,
       // meaning errorChecker is not 0 as it was created as,
       // then change the class of the div that tavble is in to 'error',
       // which will make the border color red
-      document.getElementById(divIDs[u]).className = 'error';
+
+      classList.remove('ok');
+      classList.add('error');
       errorChecker = 0;
     } else {
       // if there was not an error during the for loop in any row,
       // then keep the class of the div as 'ok'
-      document.getElementById(divIDs[u]).className = 'ok';
+      classList.remove('error');
+      classList.add('ok');
       errorChecker = 0;
     }
   }

@@ -26,47 +26,53 @@ button {
 
 /* banner styling */
 .banner {
+  display: flex;
   overflow: hidden;
   background-color: gray;
-  position: fixed;
+  position: sticky;
+  margin-bottom: 15px;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
-  -webkit-app-region: drag;
+  /* -webkit-app-region: drag; */
 }
 .banner .left {
-  float: left;
-  display: block;
+  /* float: left; */
+  /* display: block; */
   color: #f2f2f2;
-  text-align: center;
+  /* text-align: center; */
   text-decoration: none;
   padding-top: 15px;
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
   padding-left: 30px;
   font-size: 25px;
-  -webkit-app-region: no-drag;
+  /* -webkit-app-region: no-drag; */
 }
 .banner .right {
-  float: right;
+  /* float: right; */
   display: block;
   color: #f2f2f2;
   text-align: center;
   text-decoration: none;
   padding-top: 15px;
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
   padding-right: 30px;
   font-size: 25px;
 }
 .banner .settingsTrigger {
-  float: right;
-  display: block;
+  /* float: right; */
+  /* display: block; */
   color: #f2f2f2;
-  text-align: center;
+  /* text-align: center; */
   text-decoration: none;
   padding-top: 15px;
-  padding-bottom: 15px;
+  /* padding-bottom: 15px; */
   padding-right: 30px;
   font-size: 25px;
+}
+
+#title {
+  flex-grow: 1;
 }
 
 /* banner dropdown (need to fix, bit hard to get opened) */
@@ -83,7 +89,7 @@ button {
   font-family: inherit;
   margin: 0;
   height: 100%;
-  -webkit-app-region: no-drag;
+  /* -webkit-app-region: no-drag; */
 }
 .banner_dropdown-content {
   display: none;
@@ -113,7 +119,7 @@ button {
 
 /* Box's styling */
 .box {
-  height: 500px;
+  /* height: 500px; */
   margin: 5px;
   background-color: #fff;
   color: black;
@@ -177,12 +183,19 @@ input:focus {
     border-bottom: 1px solid #ddd;
 }
 
+.dataContainer {
+  display: flex;
+  max-width: 100%;
+  justify-content: space-between;
+  margin: 4px;
+}
+
 /* table styling */
 table {
   border-collapse: collapse;
   border: 1px solid #ddd;
   font-size: 14px;
-  width: 100%;
+  /* width: 100%; */
   table-layout: fixed;
 }
 table th, table td {
@@ -243,7 +256,7 @@ td.last {
   cursor: pointer;
   border: 2px solid #808080;
   border-radius: 6px;
-  width: 100px;
+  /* width: 100px; */
 }
 .dropbtn:hover, .dropbtn:focus {
   background-color: #A9A9A9;
@@ -276,6 +289,9 @@ td.last {
 }
 .dropdown a:hover {
   background-color: #ddd;
+}
+.focusBtn {
+  width: 100px;
 }
 .show {
   display: block;
@@ -520,7 +536,7 @@ span2{
   cursor: pointer;
   border: 5px solid #C10000;
   border-radius: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   width: 100%;
   height: 98%;
   font-weight: 1000px;
@@ -555,6 +571,7 @@ span2{
 .stateButton {
   text-decoration: none;
   position: inline-block;
+  vertical-align: middle;
   margin: 4px 3px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -566,6 +583,7 @@ span2{
   color: #ADADAD;
 }
 .stateButtonInactive{
+  vertical-align: middle;
   text-decoration: none;
   position: inline-block;
   margin: 4px 3px;
@@ -628,7 +646,7 @@ span2{
 
 /* Header 4 (link and latency) styling */
 #header4{
-  padding-bottom:100px;
+  /* padding-bottom:100px; */
   display: flex;
   justify-content: space-around;
 }
@@ -640,6 +658,7 @@ span2{
   justify-content: center; /* vertically centering */
 }
 #header4Left {
+  display: flex;
   width: 10%;
   padding-left: 30px;
 }
@@ -649,7 +668,8 @@ span2{
   padding-left: 20px;
 }
 #header4Middle {
-  float: right;
+  display: flex;
+  flex-direction: column;
   width: 30%;
   padding-left: 40px;
   line-height: 30px;
@@ -657,6 +677,7 @@ span2{
   padding-top: 15px;
 }
 .connectionTitle {
+  margin: 0px;
   display: inline;
 }
 #connectionDot1, #connectionDot2{

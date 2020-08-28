@@ -1,12 +1,16 @@
 /* grid layout */
 .grid {
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  /* margin-top: 20px;
   display: grid;
   grid-gap: 10.8px;
   grid-template-columns: .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68% .68%;
   padding-top: 80px;
   padding-left: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 30px; */
 }
 .grid_focus {
   display: grid;
@@ -27,13 +31,13 @@
   padding-bottom: 10px;
 }
 .gridStateMachine {
-  display: flex;
+  display: inline-block;
+  /* display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   height: 100%;
   width: 100%;
-  padding-left: 20px;
-  padding-top: 15px;
+  padding: 5px;
 }
 
 /* general grid layout */
@@ -48,46 +52,29 @@
     height: 370px;
   }
   #header3a {
-    grid-column: 1/23;
+    max-width: 335px;
+    /* grid-column: 1/23;
     grid-row: 3/5;
-    height: 300px;
+    height: 300px; */
   }
   #header3 {
-    grid-column: 23/45;
+    max-width: 335px;
+    /* grid-column: 23/45;
     grid-row: 3/5;
-    height: 300px;
-  }
-  #header4 {
-    grid-column: 45/85;
-    grid-row: 4;
-    height: 80px;
-  }
-  #extra {
-    grid-column: 1/8;
-    grid-row: 5;
-    height: 100%;
-  }
-  #motion_div {
-    grid-column: 8/27;
-    grid-row: 5;
-    height: 100%;
-  }
-  #braking_div {
-    grid-column: 27/48;
-    grid-row: 5;
-    height: 100%;
-  }
-  #battery_pack_div {
-    grid-column: 48/67;
-    grid-row: 5;
-    height: 100%;
-  }
-  #motor_div {
-    grid-column: 67/85;
-    grid-row: 5;
-    height: 100%;
+    height: 300px; */
   }
 
+  #extra {
+    /* grid-column: 1/8; */
+    /* grid-row: 5; */
+    /* height: 100%; */
+  }
+
+.dataBox{
+  margin: 8px;
+  min-width: 330px;
+  width: 23%;
+}
 
 /* grid layout for focus div */
 #header_focus_1 {

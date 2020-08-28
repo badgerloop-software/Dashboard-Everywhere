@@ -8,8 +8,10 @@
 
 import CONSTANTS from './constants.js';
 
-//import io from 'socket.io-client';
-
+const socket = io('localhost:3000');
+socket.on('connect', function(){console.log("hurray1")});
+socket.on('event', function(data){console.log(data)});
+socket.on('disconnect', function(){console.log("hurray2")});
 //const UDP_SERVER = DGRAM.createSocket('udp4');
 const PORT = CONSTANTS.serverAddr.port;
 const HOST = CONSTANTS.serverAddr.ip;
