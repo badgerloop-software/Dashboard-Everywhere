@@ -174,16 +174,16 @@ function setRecieve(state) {
  * @param {Boolean} state true for ok false for bad
  */
 function setLVIndicator(state) {
-  if (state) LV_INDICATOR.className = 'statusGood';
-  else LV_INDICATOR.className = 'statusBad';
+  if (state) LV_INDICATOR.fill = 'green';
+  else LV_INDICATOR.fill = 'red';
 }
 /**
  *Sets the HV indicator
  * @param {Boolean} state true for ok false for bad
  */
 function setHVIndicator(state) {
-  if (state) HV_INDICATOR.className = 'statusGood';
-  if (!state) HV_INDICATOR.className = 'statusBad';
+  if (state) HV_INDICATOR.fill = 'green';
+  if (!state) HV_INDICATOR.fill = 'red';
   if (!state && !DEBUG) State.setActiveState(0, CONFIRMATION_MODAL);
 }
 

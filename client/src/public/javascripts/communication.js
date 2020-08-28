@@ -9,9 +9,24 @@
 import CONSTANTS from './constants.js';
 
 const socket = io('localhost:3000');
-socket.on('connect', function(){console.log("hurray1")});
-socket.on('event', function(data){console.log(data)});
-socket.on('disconnect', function(){console.log("hurray2")});
+
+socket.on('connect_error', function(e) {
+  console.log("error");
+});
+
+socket.on('connect', function(){
+  console.log("Connected")
+});
+
+socket.on('packet', function(data) {
+  // const formattedData = JSON.parse(data);
+  console.log(data)
+});
+
+socket.on('disconnect', function() {
+  socket.close()
+  console.log("Disconnected")
+});
 //const UDP_SERVER = DGRAM.createSocket('udp4');
 const PORT = CONSTANTS.serverAddr.port;
 const HOST = CONSTANTS.serverAddr.ip;

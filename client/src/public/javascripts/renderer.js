@@ -3,7 +3,7 @@
  * @author Eric Udlis
  */
 import CONSTANTS from './constants.js';
-
+import {packetHandler} from './datainterfacing.js';
 // May want to remove this?
 
 /**
@@ -21,7 +21,7 @@ export default function Renderer() { // eslint-disable-line
   this.oldCache = {};
 
   this.runCommand = () => {
-    DATA_INTERFACING.packetHandler.emit('renderData');
+    packetHandler.emit('renderData');
   };
 
   this.startRenderer = () => {
