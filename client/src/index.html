@@ -5,8 +5,10 @@
     <link rel="stylesheet" type="text/css" href="public/stylesheets/main.css">
     <link rel="stylesheet" type="text/css" href="public/stylesheets/main.grid.css">
     <link rel="stylesheet" type="text/css" href="public/stylesheets/fonts.css">
-    <!-- <script src="../node_modules/highcharts/highcharts.js"></script> -->
-    <!-- <script src="../node_modules/highcharts/modules/exporting.js"></script> -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="./socket.io.js"></script>
+    <!-- <script src="../node_modules/highcharts/highcharts.js"></script>
+    <script src="../node_modules/highcharts/modules/exporting.js"></script> -->
     <title>Badgerloop Pod IV Dashboard</title>
   </head>
 
@@ -83,17 +85,13 @@
 
       <!-- Charts -->
       <div id="header2" class="box">
-        <div class="grid_focus2">
-          <div class="dropdown" id="chartBox">
-          </div>
           <div class="header_focus_chart" id="header_focus_chart1">
             <div id="container" style="width:100%; height:100%;"></div>
-
           </div>
           <div class="header_focus_chart" id="header_focus_chart2">
               <div id="container2" style="width:100%; height:100%;"></div>
-
           </div>
+          <div class="dropdown" id="chartBox"></div>
         </div>
       </div>
       <!-- Latency Indicator-->
@@ -293,16 +291,9 @@
         <button class="confirmationButton" id="confirmStart">Yes</button>
       </div>
     </div>
-    <!-- <script src="public/javascripts/charting.js"></script> -->
-    <script src="./socket.io.js"></script>
+    <script type='module' src="./public/javascripts/charting.js"></script>
     <script type='module' src="./public/javascripts/handler.js"></script>
     <script type='module' src="public/javascripts/ui.js"></script>
-    <!-- <script>
-      document.onload= (newChart('container', 'Chart 1', 0));
-    </script>
-    <script>
-      document.onload = (newChart('container2', 'Chart 2', 1));
-    </script> -->
   </body>
 
 </html>

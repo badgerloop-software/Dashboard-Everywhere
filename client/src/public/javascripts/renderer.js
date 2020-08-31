@@ -12,6 +12,7 @@ import {packetHandler} from './datainterfacing.js';
  */
 export default function Renderer() { // eslint-disable-line
   let self = this;
+  this.commands = [];
   this.counter = false;
   this.subCounter = false;
   this.interval = CONSTANTS.renderInterval;
@@ -20,8 +21,14 @@ export default function Renderer() { // eslint-disable-line
   this.newCache = {};
   this.oldCache = {};
 
+  this.registerCommand = (command) => {
+    self.commands.push(command);
+  }
+
   this.runCommand = () => {
-    packetHandler.emit('renderData');
+    self.commands.forEach(command => 
+      command()
+    )
   };
 
   this.startRenderer = () => {

@@ -8,25 +8,6 @@
 
 import CONSTANTS from './constants.js';
 
-const socket = io('localhost:3000');
-
-socket.on('connect_error', function(e) {
-  console.log("error");
-});
-
-socket.on('connect', function(){
-  console.log("Connected")
-});
-
-socket.on('packet', function(data) {
-  const formattedData = JSON.parse(data);
-  console.log(formattedData);
-});
-
-socket.on('disconnect', function() {
-  socket.close()
-  console.log("Disconnected")
-});
 //const UDP_SERVER = DGRAM.createSocket('udp4');
 const PORT = CONSTANTS.serverAddr.port;
 const HOST = CONSTANTS.serverAddr.ip;
@@ -35,6 +16,48 @@ const LV_BONE_PORT = CONSTANTS.lvBone.port;
 const HV_BONE_IP = CONSTANTS.hvBone.ip;
 const HV_BONE_PORT = CONSTANTS.hvBone.port;
 const RECIEVING_EMITTER = {emit: ()=>{}, on: ()=> {}};//new EVENTS.EventEmitter();
+
+// Pub/Sub comms
+export class RemoteDataChannel {
+  constructor(url, port) {
+    const base = this;
+    this._subscribers = []; // A list of callbacks that consume our incoming data
+    this._channel = io(`${url}:${port}`);
+    
+    this._channel.on('connect', () => {
+      base.connected = true;
+    })
+
+    this._channel.on('packet', (data) => {
+      try {
+        const json = JSON.parse(data)
+        base._broadcast(json)
+      } catch (e) {
+        console.error("Data isn't formatted correctly");
+      }
+    })
+
+    this._channel.on('disconnected', () => {
+      base.connected = false;
+    })
+  }
+
+  subscribe(subscriber) {
+    this._subscribers.push(subscriber)
+  }
+
+  publish() {
+    if (!connected) return; // Dont publish if we aren't connected
+    // Right now we don't have anything sending back
+  }
+
+  _broadcast(data) {
+    this._subscribers.forEach((subscriber) => {
+      subscriber(data)
+    })
+  }
+}
+
 
 
 // UDP Data Recieving

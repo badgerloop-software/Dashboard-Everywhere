@@ -6,7 +6,7 @@
 
 import {primBrakeOn, primBrakeOff, secBrakeOn, secBrakeOff, sendLVPing, 
   sendHVPing, sendEBrake, enableHV, disableHV, commandTorque, 
-  toggleLatch, enPrecharge, receivedEmitter} from './communication.js';
+  toggleLatch, enPrecharge, receivedEmitter, RemoteDataChannel} from './communication.js';
 
 import {archiveData, isDataRecording, recordingEvent, createCache, normalizePacket, packetHandler, findRenderable} from './datainterfacing.js';
 
@@ -62,6 +62,7 @@ const HV_ENABLE = new ControlPanelButton('hvEnable', 'HV Enable', CONTROL_PANEL,
 const HV_DISABLE = new ControlPanelButton('hvDisable', 'HV Disable', CONTROL_PANEL, '#F4D76F', false);
 const LATCH_OFF = new ControlPanelButton('latchOff', 'Latch off', CONTROL_PANEL, '#554188', true);
 
+const POD_COMMS = new RemoteDataChannel('localhost', 3000);
 const EMERGENCY_STOP_BTN = D.getElementById('estop');
 const TABLES_RENDERER = new RENDERER();
 const GLOBAL_TIMER = new Timer();
@@ -408,7 +409,7 @@ init();
 // Events
 
 // Data in recieved
-receivedEmitter.on('dataIn', (input) => {
+function handleDataIn(input) {
   if (DEBUG) console.log(input);
   checkPackets(input);
   let fixedPacket = checkBraking(input);
@@ -427,7 +428,8 @@ receivedEmitter.on('dataIn', (input) => {
     setRecieve(false);
     TABLES_RENDERER.stopRenderer();
   }, TIMEOUT);
-});
+}
+POD_COMMS.subscribe(handleDataIn);
 
 receivedEmitter.on('Lost', (ip) => {
   if (ip === CONSTANTS.lvBone.ip) {
@@ -449,7 +451,7 @@ receivedEmitter.on('ok', (ip) => {
   }
 });
 
-packetHandler.on('renderData', () => {
+function render(){
   const renderable = findRenderable();
   const groups = Object.keys(renderable);
 
@@ -467,4 +469,5 @@ packetHandler.on('renderData', () => {
       }
     });
   });
-});
+}
+TABLES_RENDERER.registerCommand(render);
