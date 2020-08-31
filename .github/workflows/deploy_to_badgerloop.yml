@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy_To_Badgerloop
 
 on: [push]
 
