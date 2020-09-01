@@ -62,7 +62,7 @@ const HV_ENABLE = new ControlPanelButton('hvEnable', 'HV Enable', CONTROL_PANEL,
 const HV_DISABLE = new ControlPanelButton('hvDisable', 'HV Disable', CONTROL_PANEL, '#F4D76F', false);
 const LATCH_OFF = new ControlPanelButton('latchOff', 'Latch off', CONTROL_PANEL, '#554188', true);
 
-const POD_COMMS = new RemoteDataChannel('localhost', 3000);
+const POD_COMMS = new RemoteDataChannel('badgerloop.ericudlis.com', 3000);
 const EMERGENCY_STOP_BTN = D.getElementById('estop');
 const TABLES_RENDERER = new RENDERER();
 const GLOBAL_TIMER = new Timer();
