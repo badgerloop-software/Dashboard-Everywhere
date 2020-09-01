@@ -148,11 +148,6 @@ function addTimeAndData(index, name, system) { //eslint-disable-line
  */
 function startChart(name, title, units, system, fixedUnits, index) { //eslint-disable-line
   console.log(`CHARTCAHCE : ${CHARTCACHE} SYSTEM: ${system} NAME: ${name} TITLE: ${title} INDEX: ${index}`);
-  if (!charts[index]) {
-      const chartName = `Chart ${index + 1}`;
-      const chartID = index === 0 ? 'container' : 'container2';
-      newChart(chartID, chartName, index)
-  }
   let currentTime = CHARTCACHE[system][name].length * 0.03;
   currentTime = parseFloat(currentTime);
   clearChart(index);
@@ -170,10 +165,10 @@ CLEAR_CHART_BUTTON.onClick(() => {
   clearChart(1);
 });
 
-// // function createCharts() {
-//     newChart('container', 'Chart 1', 0)
-//     newChart('container2', 'Chart 2', 1)
-// // }
+function createCharts() {
+    newChart('container', 'Chart 1', 0)
+    newChart('container2', 'Chart 2', 1)
+}
 
-// document.onload = createCharts()
+window.onload = createCharts;
 // document.onload = ();
