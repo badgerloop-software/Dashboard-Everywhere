@@ -25,6 +25,7 @@ export default class UdpServer {
       });
 
       server.bind(port);
+      console.log(`[INFO] UDP Socket Listening at port ${port}`);
       return server;
     }
 
