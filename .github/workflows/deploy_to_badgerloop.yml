@@ -1,0 +1,33 @@
+name: Deploy_To_Badgerloop
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Copy file via scp
+      uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.HOST_LOOP }}
+        USERNAME: ${{ secrets.USERNAME_LOOP }}
+        PORT: ${{ secrets.PORT_LOOP }}
+        KEY: ${{ secrets.SSHKEY_LOOP }}
+      with:
+        source: "."
+        target: "/apps/devs/"
+
+    - name: Restarting Server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST_LOOP }}
+        USERNAME: ${{ secrets.USERNAME_LOOP }}
+        PORT: ${{ secrets.PORT_LOOP }}
+        KEY: ${{ secrets.SSHKEY_LOOP }}
+        script: |
+          cd ~/app/server
+            npm install
