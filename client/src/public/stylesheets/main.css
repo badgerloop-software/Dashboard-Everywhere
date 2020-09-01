@@ -126,6 +126,7 @@ button {
   border-color: #282728;
   border-style: solid;
   border-radius: 10px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 .box-content {
   position: relative;
@@ -257,7 +258,6 @@ td.last {
   cursor: pointer;
   border: 2px solid #808080;
   border-radius: 6px;
-  /* width: 100px; */
 }
 .dropbtn:hover, .dropbtn:focus {
   background-color: #A9A9A9;
@@ -266,7 +266,6 @@ td.last {
 .dropdown {
   position: relative;
   display: inline-block;
-  padding-bottom: 50px;
 }
 .dropdown-content {
   display: none;
@@ -461,6 +460,7 @@ span2{
   text-align: center;
 }
 .header_focus_chart {
+  min-width: 350px;
   border-radius: 8px;
   border-style: solid;
   border-color: #646569;
@@ -495,6 +495,33 @@ span2{
 }
 #start h1 {
   color: white;
+}
+
+#header1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+/* general grid layout */
+
+#header2 {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+}
+.buttonBox {
+  max-width: 335px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.dataBox{
+  margin: 8px;
+  min-width: 330px;
+  width: 23%;
 }
 
 /*motor safety toggle styling */
@@ -704,6 +731,10 @@ span2{
   line-height: 0px;
 }
 
+#focusBox {
+  display: flex;
+  width: 100%;
+}
 
 /* something ??? */
 .modebar {
@@ -791,6 +822,13 @@ hr {
 /* extra box styling */ 
 #extra {
   border: none;
+  display: flex;
+  margin: 12px;
+}
+
+.flexRow {
+  display: flex;
+  width:100%;
 }
 
 /* JSON timer counters styling */
