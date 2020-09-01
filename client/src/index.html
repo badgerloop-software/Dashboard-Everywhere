@@ -31,106 +31,107 @@
           </div>
         </div>
       </a>
-      <a class="settingsTrigger" id="settingsTrigger"><img src="public/images/settings.png" height="35px"></a>
     </div>
 
     <!-- main grid layout-->
     <div class="grid">
       <!-- Focus Box -->
-      <div>
-      <div id="header1" class="box">
-        <div class="grid_focus">
-          <div class="header_focus" id="header_focus_1">
-            <p id="header_label_1">Value 1</p>
-            <h1 id="header_value_1"></h1>
+      <div class="flexRow">
+        <div id="header1" class="box">
+          <div class="flexRow">
+            <div class="header_focus" id="header_focus_1">
+              <p id="header_label_1">Value 1</p>
+              <h1 id="header_value_1"></h1>
+            </div>
+            <div class="header_focus" id="header_focus_2">
+              <p id="header_label_2">Value 2</p>
+              <h1 id="header_value_2"></h1>
+            </div>
+            <div class="header_focus" id="header_focus_3">
+              <p id="header_label_3">Value 3</p>
+              <h1 id="header_value_3"></h1>
+            </div>
+            <div class="header_focus" id="header_focus_4">
+              <p id="header_label_4">Value 4</p>
+              <h1 id="header_value_4"></h1>
+            </div>
           </div>
-          <div class="header_focus" id="header_focus_2">
-            <p id="header_label_2">Value 2</p>
-            <h1 id="header_value_2"></h1>
-          </div>
-          <div class="header_focus" id="header_focus_3">
-            <p id="header_label_3">Value 3</p>
-            <h1 id="header_value_3"></h1>
-          </div>
-          <div class="header_focus" id="header_focus_4">
-            <p id="header_label_4">Value 4</p>
-            <h1 id="header_value_4"></h1>
-          </div>
-          <div class="dropdown" id="focusBox">
+          <div class="flexRow">
+            <div class="dropdown" id="focusBox">
+            </div>
           </div>
         </div>
+      <!-- Emergency Start and Stop Buttons -->    
       </div>
-      <!-- Emergency Start and Stop Buttons -->
-      <div id="extra" class="box">
-        <!-- <button id="start" class="confirmationTrigger">
-          <h1>MASTER START</h1>
-        </button> -->
-        <!-- <button id="motor-safety">
-          <h3>MOTOR  SAFETY</h3>
-          <h1 id="motor-safety-status" class="status-on">ON</h1>
-        </button> -->
-        <button id="estop">
-          <h1>E-STOP</h1>
-        </button>
-      </div>
-      </div>
-      <!-- State Machine Control Panel -->
-      <div id="header3a" class="box">
-        <div class="gridStateMachine" id="statemachineBox"></div>
-      </div>
-      <div id="header3" class="box">
-        <div class="gridStateMachine" id="controlpanelBox">
+      <div class="flexRow">
+<!-- State Machine Control Panel -->
+        <div id="statemachineBox" class="buttonBox box">
         </div>
-      </div>
-
-      <!-- Charts -->
-      <div id="header2" class="box">
-          <div class="header_focus_chart" id="header_focus_chart1">
-            <div id="container" style="width:100%; height:100%;"></div>
-          </div>
-          <div class="header_focus_chart" id="header_focus_chart2">
+        <div id="controlpanelBox" class="buttonBox box">
+        </div>
+  <!-- Charts -->
+        <div id="header2" class="box">
+          <div class='flexRow'>
+            <div class="header_focus_chart" id="header_focus_chart1">
+              <div id="container" style="width:100%; height:100%;"></div>
+            </div>
+            <div class="header_focus_chart" id="header_focus_chart2">
               <div id="container2" style="width:100%; height:100%;"></div>
+            </div>
           </div>
-          <div class="dropdown" id="chartBox"></div>
+          <div class='flexRow'>
+            <div class="dropdown" id="chartBox"></div>
+          </div>  
         </div>
       </div>
+    </div>
+            
       <!-- Latency Indicator-->
-      <div id="header4" class="box">
-        <div id="header4Left">
-          <h1>Link <br>Status</h1>
+    <div id="header4" class="box">
+      <div id="header4Left">
+        <h1>Link <br>Status</h1>
+      </div>
+      <div id="header4Middle">
+        <div>
+          <h4 class="connectionTitle">LV BeagleBone</h4>
+          <svg viewport='0 0 30 30' width='26' height='26'><circle id="connectionDot1" cx='13' cy='20' r='6' fill='red'/></svg>
         </div>
-        <div id="header4Middle">
-          <div>
-            <h4 class="connectionTitle">LV BeagleBone</h4>
-            <svg viewport='0 0 30 30' width='26' height='26'><circle id="connectionDot1" cx='13' cy='20' r='6' fill='red'/></svg>
-
-          </div>
-          <div>
-            <h4 class="connectionTitle">HV BeagleBone</h4>
-            <svg viewport='0 0 26 26' width='26' height='26'><circle id="connectionDot2" cx='13' cy='20' r='6' fill='red'/></svg>
-          </div>
-          <!-- <p id="connectionDot2" class="statusBad"></p> -->
-        </div>
-        <div id="header4Right">
-          <div class="status">
-            <img src="public/images/pod.png" id="podStatus">
-            <div id="statusConnection1" class="">
-              <p id="link1" class="">---</p>
-            </div>
-            <div id="age">
-              <h5 id="ageLabel">Timer</h5>
-              <h1 id="ageDisplay"></h1>
-            </div>
-            <div id="statusConnection2" class="">
-              <p id="link2" class="">---</p>
-            </div>
-            <img src="public/images/macbook.png" id="hostStatus">
-          </div>
+        <div>
+          <h4 class="connectionTitle">HV BeagleBone</h4>
+          <svg viewport='0 0 26 26' width='26' height='26'><circle id="connectionDot2" cx='13' cy='20' r='6' fill='red'/></svg>
         </div>
       </div>
+      <div id="header4Right">
+        <div class="status">
+          <img src="public/images/pod.png" id="podStatus">
+          <div id="statusConnection1" class="">
+            <p id="link1" class="">---</p>
+          </div>
+          <div id="age">
+            <h5 id="ageLabel">Timer</h5>
+            <h1 id="ageDisplay"></h1>
+          </div>
+          <div id="statusConnection2" class="">
+            <p id="link2" class="">---</p>
+          </div>
+          <img src="public/images/macbook.png" id="hostStatus">
+        </div>
+      </div>
+    </div>
 
-      
-      <div class='dataContainer'>
+    <div id="extra" class="box">
+      <!-- <button id="start" class="confirmationTrigger">
+        <h1>MASTER START</h1>
+      </button> -->
+      <!-- <button id="motor-safety">
+        <h3>MOTOR  SAFETY</h3>
+        <h1 id="motor-safety-status" class="status-on">ON</h1>
+      </button> -->
+      <button id="estop">
+        <h1>E-STOP</h1>
+      </button>
+    </div>
+    <div class='dataContainer'>
       <!-- Motion Table -->
       <div id="motion_div" class="box ok dataBox">
         <div class="item-content">
@@ -236,52 +237,6 @@
         </div>
       </div>
     </div>
-      <!-- Dashboard Settings Modal -->
-      <div class="settingsModal">
-        <div class="modal-content" id="settingsModalContent">
-          <span class="close-button">×</span>
-          <h1>Dashboard Settings</h1>
-          <form class="settingsForm">
-            <div id="formLeft">
-              <h4 id="formTitle">Pod Settings</h4>
-              <label for="podIP" id="pod-ip">Pod IP</label>
-              <input id="podIP" class="formInput" type="text">
-
-              <label for="podPort" id="pod-port">Pod Port</label>
-              <input id="podPort" class="formInput" type="number">
-              <div class=charteric>
-                <p></p>
-              </div>
-            </div>
-            <div id="formRight">
-              <h4 id="formTitle">BeagleBone Settings</h4>
-              <label for="lvBoneIP" id="lv-bone-ip">LV Bone IP</label>
-              <input id="lvBoneIP" class="formInput" type="text">
-
-              <label for="lvBonePort" id="lv-bone-port">LV Bone Port</label>
-              <input id="lvBonePort" class="formInput" type="number">
-
-              <label for="hvBoneIP" id="hv-bone-ip">HV Bone IP</label>
-              <input id="hvBoneIP" class="formInput" type="text">
-
-              <label for="hvBonePort" id="hv-bone-port">HV Bone Port</label>
-              <input id="hvBonePort" class="formInput" type="number">
-            </div>
-            <div id="formFull">
-              <h4 id="formTitle">Dashboard Settings</h4>
-              <label for="scanningRate">Data Send/ Scanning Rate <span id="value"></span> </label>
-              <input id="scanningRate" class="formInput" type="number" min="0" max="500" class="inputNotSearchable">
-              <label for="renderInterval">Render Interval</label>
-              <input id="renderInterval" class="formInput" type="number" min="100" class="inputNotSearchable">
-              <label for="debug"></label>
-              <input id="debug" class="formInput" type="checkbox">
-              <button id="podSettingsSubmit" type="button">Submit</button>
-              <p id="formFeedback">(Will restart for changes to take place):</p>
-            </div>
-          </form>
-        </div>
-      </div>
-
     <!-- Propulsion Confirmation Modal -->
     <div class="confirmationModal">
       <div class="modal-content" id="confirmationModalContent">

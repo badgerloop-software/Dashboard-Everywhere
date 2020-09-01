@@ -31,6 +31,11 @@ function newChart(id, title, index) { //eslint-disable-line
     chart: {
       type: 'line',
     },
+    yAxis: {
+        title: {
+            enabled: false
+        }
+    },
     title: {
       text: title,
     },
@@ -61,6 +66,8 @@ function newChart(id, title, index) { //eslint-disable-line
  * @param {int} index index of the chart to be cleared
  */
 function clearChart(index) { //eslint-disable-line
+    if (!charts[index])
+        return; 
   charts[index].xAxis[0].setExtremes(null, null); // unsets extremes
   clearInterval(interval[index]); // clears interval
   interval[index] = null;
@@ -141,10 +148,14 @@ function addTimeAndData(index, name, system) { //eslint-disable-line
  */
 function startChart(name, title, units, system, fixedUnits, index) { //eslint-disable-line
   console.log(`CHARTCAHCE : ${CHARTCACHE} SYSTEM: ${system} NAME: ${name} TITLE: ${title} INDEX: ${index}`);
+  if (!charts[index]) {
+      const chartName = `Chart ${index + 1}`;
+      const chartID = index === 0 ? 'container' : 'container2';
+      newChart(chartID, chartName, index)
+  }
   let currentTime = CHARTCACHE[system][name].length * 0.03;
   currentTime = parseFloat(currentTime);
-  if (charts[index]) 
-    clearChart(index);
+  clearChart(index);
   initialize(index, currentTime, name, title, units); // initialize new chart
   // start interval to add points to the chart
   interval[index] = setInterval(() => { addTimeAndData(index, name, system); }, rate);
@@ -159,10 +170,10 @@ CLEAR_CHART_BUTTON.onClick(() => {
   clearChart(1);
 });
 
-function createCharts() {
-    newChart('container', 'Chart 1', 0)
-    newChart('container2', 'Chart 2', 1)
-}
+// // function createCharts() {
+//     newChart('container', 'Chart 1', 0)
+//     newChart('container2', 'Chart 2', 1)
+// // }
 
-document.onload = createCharts()
+// document.onload = createCharts()
 // document.onload = ();
