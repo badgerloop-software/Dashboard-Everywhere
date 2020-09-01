@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY_LOOP }}
       with:
         source: "."
-        target: "/apps/"
+        target: "/apps/devs/"
 
     - name: Restarting Server
       uses: appleboy/ssh-action@master
