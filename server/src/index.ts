@@ -4,7 +4,7 @@ import UdpServer from './communication';
 const SOCKET_PORT = 3000;
 const UDP_PORT = 4000;
 
-const SERVER: io.Server = io.listen(SOCKET_PORT);
+const SERVER: io.Server = io(SOCKET_PORT);
 
 const UDP_SERVER = new UdpServer(UDP_PORT);
 

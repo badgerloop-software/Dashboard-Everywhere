@@ -7,7 +7,7 @@
 const DGRAM = require('dgram');
 
 const DATA_SEND_RATE = 1000;
-const IP = '127.0.0.1';
+const IP = 'badgerloop.ericudlis.com';
 const PORT = 4000;
 const CLIENT = DGRAM.createSocket('udp4');
 let counter = 0;
